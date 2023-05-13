@@ -38,7 +38,11 @@
 
       const processVideo = async ({ target: { files } }, operation) => {
         if (ffmpeg === null) {
-          ffmpeg = createFFmpeg({ log: true });
+          ffmpeg = createFFmpeg({
+            mainName: "main",
+            corePath:
+              "https://unpkg.com/@ffmpeg/core-st@0.11.1/dist/ffmpeg-core.js",
+          });
         }
         const message = document.getElementById("message");
         const { name } = files[0];
